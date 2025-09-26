@@ -54,8 +54,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvl01"]
-radius = 21.0
-height = 140.0
+radius = 19.0
+height = 128.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_2hs0m")
@@ -70,3 +70,4 @@ animation = &"fall"
 shape = SubResource("CapsuleShape2D_nvl01")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.25, 1.25)
