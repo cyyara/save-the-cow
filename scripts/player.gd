@@ -5,20 +5,16 @@ func _ready() -> void:
 	$AnimatedSprite2D.play() # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	var velocity = Vector2.ZERO
-	if Input.is_action_pressed("move_left"): velocity.x -= 1
-	if Input.is_action_pressed("move_right"): velocity.x += 1
-	
-	velocity = velocity.normalized() * speed
-	if velocity.length() == 0:
-		$AnimatedSprite2D.animation = "idle"
-	elif velocity.x > 0:
+	velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if velocity.length() != 0:
 		$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.flip_h = false
+		velocity = velocity * speed
+		if velocity.x > 0:
+			$AnimatedSprite2D.flip_h = false
+		else:
+			$AnimatedSprite2D.flip_h = true
 	else:
-		$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.flip_h = true
-
+		$AnimatedSprite2D.animation = "idle"
 	move_and_slide()
 	
 	
