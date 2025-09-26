@@ -5,15 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://dg0ai2tb54gi4" path="res://assets/player/walk_1.png" id="2_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://d0p3mk0dwjg1u" path="res://assets/player/walk_2.png" id="3_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://c02y61lv46arb" path="res://assets/player/walk_3.png" id="4_dw050"]
-[ext_resource type="Texture2D" uid="uid://cs8cj75asl876" path="res://assets/player/jump.png" id="4_smehm"]
+[ext_resource type="Texture2D" uid="uid://cs8cj75asl876" path="res://assets/player/fall.png" id="4_smehm"]
 [ext_resource type="Texture2D" uid="uid://cy8q2phw44hwt" path="res://assets/player/walk_4.png" id="5_b26j0"]
-[ext_resource type="Texture2D" uid="uid://c1lgbsulkjte3" path="res://assets/player/fall.png" id="6_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://c1lgbsulkjte3" path="res://assets/player/jump.png" id="6_a8ls1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n7ghd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_a8ls1")
+"texture": ExtResource("4_smehm")
 }],
 "loop": true,
 "name": &"fall",
@@ -29,7 +29,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_smehm")
+"texture": ExtResource("6_a8ls1")
 }],
 "loop": true,
 "name": &"jump",
@@ -63,7 +63,9 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n7ghd")
-animation = &"jump"
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nvl01")
+
+[node name="Camera2D" type="Camera2D" parent="."]
