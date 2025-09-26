@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0p3mk0dwjg1u"
-path="res://.godot/imported/walking0005.png-4e25661b73b2b3cf39d6206552f57fb7.ctex"
+uid="uid://dg0ai2tb54gi4"
+path="res://.godot/imported/walk_1.png-8795c0ccdb8c637bca2b34482c6fdfdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/walking0005.png"
-dest_files=["res://.godot/imported/walking0005.png-4e25661b73b2b3cf39d6206552f57fb7.ctex"]
+source_file="res://assets/player/walk_1.png"
+dest_files=["res://.godot/imported/walk_1.png-8795c0ccdb8c637bca2b34482c6fdfdc.ctex"]
 
 [params]
 
