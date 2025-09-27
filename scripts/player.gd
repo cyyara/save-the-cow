@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 	var input_x = Input.get_axis("move_left", "move_right")
 	velocity.x = input_x * speed
 	
-	var can_jump = jump_count < 2 and velocity.y <= 0
+	var can_jump = jump_count < 2 and velocity.y >= 0
 	
 	if is_on_floor():
 		jump_count = 0
