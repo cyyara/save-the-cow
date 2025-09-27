@@ -35,5 +35,11 @@ func _physics_process(delta: float) -> void:
 
 	if velocity.x != 0:
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-
+	
 	move_and_slide()
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+		if body is RigidBody2D:
+			print("pushed crate")
+			body.apply_central_impulse(velocity * delta * 50)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://bwobg0vej3lkj"]
+[gd_scene load_steps=7 format=4 uid="uid://bwobg0vej3lkj"]
 
+[ext_resource type="PackedScene" uid="uid://ce3x33siqha3l" path="res://scenes/environment/crate.tscn" id="1_dwgg1"]
 [ext_resource type="PackedScene" uid="uid://vs4wsc5j5v3c" path="res://scenes/player.tscn" id="1_yjt17"]
 [ext_resource type="Texture2D" uid="uid://c2b54g6q0p23" path="res://assets/environment/ground_tileset.png" id="2_wwpf4"]
 [ext_resource type="PackedScene" uid="uid://d2lg1aw8uryil" path="res://scenes/environment/cloud.tscn" id="3_m7ahb"]
@@ -57,3 +58,15 @@ position = Vector2(931.5314, 299.05072)
 
 [node name="cloud5" parent="." instance=ExtResource("3_m7ahb")]
 position = Vector2(251.43372, 295.59845)
+
+[node name="Crate" parent="." instance=ExtResource("1_dwgg1")]
+position = Vector2(761.25006, 295.00003)
+
+[node name="Crate2" parent="." instance=ExtResource("1_dwgg1")]
+position = Vector2(884, 541)
+
+[node name="Crate3" parent="." instance=ExtResource("1_dwgg1")]
+position = Vector2(619, 540)
+
+[node name="Crate4" parent="." instance=ExtResource("1_dwgg1")]
+position = Vector2(752, 541)
