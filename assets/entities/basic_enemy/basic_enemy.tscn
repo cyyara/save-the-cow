@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dss5ktjn2000d"]
+[gd_scene load_steps=9 format=3 uid="uid://dss5ktjn2000d"]
 
 [ext_resource type="Texture2D" uid="uid://bm6otj2j08cqy" path="res://assets/entities/basic_enemy/sprites/idle/idle_ 0.png" id="1_6eu4u"]
+[ext_resource type="Script" uid="uid://ds1doudepnuyb" path="res://assets/entities/basic_enemy/basic_enemy.gd" id="1_q3cuh"]
 [ext_resource type="Texture2D" uid="uid://dretlcbte523g" path="res://assets/entities/basic_enemy/sprites/walking/basic_enemy_walking0000.png" id="2_q3cuh"]
 [ext_resource type="Texture2D" uid="uid://blk17hl8hf6nu" path="res://assets/entities/basic_enemy/sprites/walking/basic_enemy_walking0001.png" id="3_ayb78"]
 [ext_resource type="Texture2D" uid="uid://cquboft7sga4p" path="res://assets/entities/basic_enemy/sprites/walking/basic_enemy_walking0002.png" id="4_laydr"]
@@ -39,6 +40,7 @@ animations = [{
 }]
 
 [node name="BasicEnemy" type="CharacterBody2D"]
+script = ExtResource("1_q3cuh")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
