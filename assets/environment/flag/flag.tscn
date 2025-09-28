@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7uuji55gqysk"]
+
+[ext_resource type="Script" uid="uid://dkmjs5f41vrtu" path="res://assets/environment/flag/flag.gd" id="1_yaenj"]
+[ext_resource type="Texture2D" uid="uid://cya46ktttn2bq" path="res://assets/environment/flag/sprites/off/flag_off_0.png" id="2_a5dmv"]
+[ext_resource type="Texture2D" uid="uid://wd32ovm68mk6" path="res://assets/environment/flag/sprites/off/flag_off_1.png" id="3_1vilt"]
+[ext_resource type="Texture2D" uid="uid://bdftagcj7kcwd" path="res://assets/environment/flag/sprites/off/flag_off_2.png" id="4_tjqdf"]
+[ext_resource type="Texture2D" uid="uid://dir232bu5nmxm" path="res://assets/environment/flag/sprites/on/flag_on_0.png" id="5_keb2v"]
+[ext_resource type="Texture2D" uid="uid://b2n3wmbxat3uc" path="res://assets/environment/flag/sprites/on/flag_on_1.png" id="6_ateu3"]
+[ext_resource type="Texture2D" uid="uid://k5x0u0vyftvg" path="res://assets/environment/flag/sprites/on/flag_on_2.png" id="7_xn7cp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxhuj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a5dmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1vilt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tjqdf")
+}],
+"loop": true,
+"name": &"off",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_keb2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ateu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xn7cp")
+}],
+"loop": true,
+"name": &"on",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5dmv"]
+size = Vector2(3, 121)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5dmv"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_a5dmv"]
+font_size = 11
+font_color = Color(0, 0, 0, 1)
+
+[node name="Flag" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_yaenj")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_xxhuj")
+animation = &"on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_a5dmv")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = 42.0
+offset_top = -12.0
+offset_right = 166.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a5dmv")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 7.333336
+offset_top = 11.333334
+offset_right = 117.333336
+offset_bottom = 34.33333
+text = "Press WASD to move"
+label_settings = SubResource("LabelSettings_a5dmv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
