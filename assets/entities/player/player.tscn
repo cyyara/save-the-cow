@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://vs4wsc5j5v3c"]
+[gd_scene load_steps=14 format=3 uid="uid://vs4wsc5j5v3c"]
 
 [ext_resource type="Script" uid="uid://bbquet4mof0k7" path="res://assets/entities/player/player.gd" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://bdkkodg10abxn" path="res://assets/entities/player/sprites/idle/idle_0.png" id="1_sweqy"]
@@ -6,8 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://bgvdtr2hdaeae" path="res://assets/entities/player/sprites/walk/walk_1.png" id="3_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://td3q4rwgytoi" path="res://assets/entities/player/sprites/walk/walk_2.png" id="4_dw050"]
 [ext_resource type="Texture2D" uid="uid://covf8750ga8ed" path="res://assets/entities/player/sprites/fall/fall_0.png" id="4_smehm"]
+[ext_resource type="Texture2D" uid="uid://3tptkjfmj6go" path="res://assets/entities/player/sprites/shoot/shoot0000.png" id="5_58vou"]
 [ext_resource type="Texture2D" uid="uid://dgmroyt6cp87w" path="res://assets/entities/player/sprites/walk/walk_3.png" id="5_b26j0"]
 [ext_resource type="Texture2D" uid="uid://bue6wfrxilu1d" path="res://assets/entities/player/sprites/jump/jump_0.png" id="6_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://ygpu4wk852r7" path="res://assets/entities/player/sprites/shoot/shoot0001.png" id="6_fpwjn"]
+[ext_resource type="Texture2D" uid="uid://cee7ogmm1mrgk" path="res://assets/entities/player/sprites/shoot/shoot0002.png" id="7_j7t0r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n7ghd"]
 animations = [{
@@ -37,6 +40,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_58vou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fpwjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j7t0r")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_2hs0m")
 }, {
 "duration": 1.0,
@@ -59,14 +76,15 @@ height = 128.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_2hs0m")
-speed = 400
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n7ghd")
-animation = &"fall"
+animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nvl01")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

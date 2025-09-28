@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://blo1uvwc1tkmj" path="res://assets/environment/ground/ground_tileset.png" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://vs4wsc5j5v3c" path="res://assets/entities/player/player.tscn" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://ce3x33siqha3l" path="res://assets/environment/crate/crate.tscn" id="3_rus8k"]
-[ext_resource type="PackedScene" path="res://assets/environment/flag/flag.tscn" id="4_jwayp"]
+[ext_resource type="PackedScene" uid="uid://c7uuji55gqysk" path="res://assets/environment/flag/flag.tscn" id="4_jwayp"]
 [ext_resource type="PackedScene" uid="uid://dss5ktjn2000d" path="res://assets/entities/basic_enemy/basic_enemy.tscn" id="5_53h1i"]
 [ext_resource type="PackedScene" uid="uid://edel20bxedlo" path="res://assets/entities/cow/cow.tscn" id="6_13q1v"]
 
