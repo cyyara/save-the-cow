@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://edel20bxedlo"]
+
+[ext_resource type="Script" uid="uid://bd2us5pdiq888" path="res://assets/entities/cow/cow.gd" id="1_fvfpu"]
+[ext_resource type="Texture2D" uid="uid://u6wvpuslf20w" path="res://assets/entities/cow/sprites/cow_idle0000.png" id="1_t3h2c"]
+[ext_resource type="Texture2D" uid="uid://d35cahr153x0g" path="res://assets/entities/cow/sprites/cow_idle0001.png" id="2_fvfpu"]
+[ext_resource type="Texture2D" uid="uid://pesw7cp0f4k7" path="res://assets/entities/cow/sprites/cow_idle0002.png" id="3_2hjys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anfto"]
+size = Vector2(111, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0p8kj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t3h2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fvfpu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2hjys")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="Cow" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_fvfpu")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.5, -4)
+shape = SubResource("RectangleShape2D_anfto")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0p8kj")
+animation = &"idle"
+frame_progress = 0.06875018

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm6otj2j08cqy"
-path="res://.godot/imported/idle_ 0.png-c011c10a309339f2d6bfa7624fea9a61.ctex"
+uid="uid://pesw7cp0f4k7"
+path="res://.godot/imported/cow_idle0002.png-3460536140336b6faad7257d79fca3ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/enemy_basic/sprites/idle/idle_ 0.png"
-dest_files=["res://.godot/imported/idle_ 0.png-c011c10a309339f2d6bfa7624fea9a61.ctex"]
+source_file="res://assets/entities/cow/sprites/cow_idle0002.png"
+dest_files=["res://.godot/imported/cow_idle0002.png-3460536140336b6faad7257d79fca3ca.ctex"]
 
 [params]
 
