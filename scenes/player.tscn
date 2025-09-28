@@ -60,6 +60,7 @@ height = 128.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_2hs0m")
 speed = 400
+push_strength = 2000
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
