@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cugthi8kf5pyf"]
+[gd_scene load_steps=19 format=3 uid="uid://cugthi8kf5pyf"]
 
-[ext_resource type="Script" uid="uid://dbsjeot4fxl1t" path="res://assets/levels/level_2/level_2.gd" id="1_v5ti6"]
-[ext_resource type="PackedScene" uid="uid://d2lg1aw8uryil" path="res://assets/environment/cloud/cloud.tscn" id="2_uimhi"]
-[ext_resource type="PackedScene" uid="uid://c7uuji55gqysk" path="res://assets/environment/flag/flag.tscn" id="3_epxkq"]
-[ext_resource type="PackedScene" uid="uid://dj80ku0kgk45k" path="res://assets/environment/hell_portal/hell_portal.tscn" id="4_gb6w8"]
-[ext_resource type="PackedScene" uid="uid://vs4wsc5j5v3c" path="res://assets/entities/player/player.tscn" id="5_smva7"]
-[ext_resource type="PackedScene" uid="uid://dss5ktjn2000d" path="res://assets/entities/basic_enemy/basic_enemy.tscn" id="6_8kxua"]
-[ext_resource type="PackedScene" uid="uid://ce3x33siqha3l" path="res://assets/environment/crate/crate.tscn" id="7_07d81"]
+[ext_resource type="PackedScene" uid="uid://cymg51wygofex" path="res://assets/environment/eye/eye.tscn" id="2_tt5o5"]
+[ext_resource type="PackedScene" uid="uid://edel20bxedlo" path="res://assets/entities/cow/cow.tscn" id="4_15ckf"]
+[ext_resource type="PackedScene" uid="uid://vs4wsc5j5v3c" path="res://assets/entities/player/player.tscn" id="5_diisu"]
+[ext_resource type="PackedScene" uid="uid://dss5ktjn2000d" path="res://assets/entities/basic_enemy/basic_enemy.tscn" id="6_psbqt"]
+[ext_resource type="Script" uid="uid://eoa6dgblnp3t" path="res://assets/levels/level_2/elevator.gd" id="6_psjgf"]
+[ext_resource type="PackedScene" uid="uid://ce3x33siqha3l" path="res://assets/environment/crate/crate.tscn" id="7_40xq7"]
+
+[sub_resource type="GDScript" id="GDScript_tt5o5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbnc3"]
 size = Vector2(2560, 40)
@@ -23,9 +24,55 @@ size = Vector2(20, 924)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wynxu"]
 size = Vector2(2556, 20)
 
-[node name="Level1" type="Node2D"]
-script = ExtResource("1_v5ti6")
-CloudScene = ExtResource("2_uimhi")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15ckf"]
+size = Vector2(336, 393)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt5o5"]
+size = Vector2(75, 20)
+
+[sub_resource type="Animation" id="Animation_tt5o5"]
+resource_name = "back and forth"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2149, 662), Vector2(1000, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_psjgf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2149, 661)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vuw0p"]
+_data = {
+&"RESET": SubResource("Animation_psjgf"),
+&"back and forth": SubResource("Animation_tt5o5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psjgf"]
+size = Vector2(74, 10.124664)
+
+[node name="Level2" type="Node2D"]
+script = SubResource("GDScript_tt5o5")
 metadata/_edit_group_ = true
 metadata/_edit_horizontal_guides_ = [680.0, 923.0]
 metadata/_edit_vertical_guides_ = [2.0, 2560.0]
@@ -33,33 +80,65 @@ metadata/_edit_vertical_guides_ = [2.0, 2560.0]
 [node name="Sky" type="ColorRect" parent="."]
 offset_right = 2560.0
 offset_bottom = 720.0
-color = Color(0.64705884, 0.84705883, 1, 1)
+color = Color(0.7, 0, 0, 1)
+metadata/_edit_lock_ = true
 
-[node name="Flag" parent="." instance=ExtResource("3_epxkq")]
-position = Vector2(372.38733, 585.88275)
+[node name="Cow" parent="." instance=ExtResource("4_15ckf")]
+position = Vector2(2412, 221)
 
-[node name="Flag2" parent="." instance=ExtResource("3_epxkq")]
-position = Vector2(805, 585)
+[node name="Eyes" type="CanvasGroup" parent="."]
+metadata/_edit_lock_ = true
 
-[node name="Flag3" parent="." instance=ExtResource("3_epxkq")]
-position = Vector2(1280, 584)
+[node name="Eye" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(2171.2698, 70.906235)
+scale = Vector2(1.5, 1.5)
 
-[node name="HellPortal" parent="." instance=ExtResource("4_gb6w8")]
-position = Vector2(2512, 604.00006)
-scale = Vector2(1.25, 1.25)
+[node name="Eye2" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(2490.4436, 57.72934)
+scale = Vector2(1.5, 1.5)
 
-[node name="Player" parent="." instance=ExtResource("5_smva7")]
+[node name="Eye3" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(2222, 238.00002)
+scale = Vector2(1.5, 1.5)
+
+[node name="Eye4" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(1942.2139, 237.50781)
+scale = Vector2(1.5, 1.5)
+
+[node name="Eye5" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(1842.355, 89.14569)
+scale = Vector2(1.5, 1.5)
+
+[node name="Eye6" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(2047.7793, 402.9886)
+scale = Vector2(1.5, 1.5)
+
+[node name="Eye7" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(2294, 420)
+scale = Vector2(1.5, 1.5)
+
+[node name="Player" parent="." instance=ExtResource("5_diisu")]
 position = Vector2(131, 619)
 
-[node name="BasicEnemy" parent="." instance=ExtResource("6_8kxua")]
+[node name="BasicEnemy" parent="." instance=ExtResource("6_psbqt")]
 position = Vector2(1901, 604)
 
-[node name="Crate" parent="." instance=ExtResource("7_07d81")]
+[node name="Crares" type="CanvasGroup" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Crate" parent="Crares" instance=ExtResource("7_40xq7")]
 position = Vector2(1148, 641)
+
+[node name="Crate2" parent="Crares" instance=ExtResource("7_40xq7")]
+position = Vector2(1238, 641)
+
+[node name="Crate3" parent="Crares" instance=ExtResource("7_40xq7")]
+position = Vector2(1238, 550)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 680)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(1280, 20)
@@ -75,9 +154,10 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 2558.0
 offset_bottom = 38.0
-color = Color(0.2509804, 0.7529412, 0.34117648, 1)
+color = Color(1, 0, 0, 1)
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Top" type="CollisionShape2D" parent="WorldBorders"]
 position = Vector2(1281, 0)
@@ -100,4 +180,60 @@ offset_left = 2.0
 offset_top = 720.0
 offset_right = 2558.0
 offset_bottom = 923.0
-color = Color(0.5176471, 0.3882353, 0.34509805, 1)
+color = Color(0.4512849, 0.12115648, 0, 1)
+
+[node name="BigPlatform" type="StaticBody2D" parent="."]
+position = Vector2(2432, 508)
+
+[node name="Stroke" type="ColorRect" parent="BigPlatform"]
+offset_left = -210.0
+offset_top = -220.0
+offset_right = 126.0
+offset_bottom = 173.0
+color = Color(0, 0, 0, 1)
+
+[node name="Fill" type="ColorRect" parent="BigPlatform/Stroke"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 334.0
+offset_bottom = 391.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigPlatform"]
+position = Vector2(-42, -23.5)
+shape = SubResource("RectangleShape2D_15ckf")
+metadata/_edit_lock_ = true
+
+[node name="Elevator" type="AnimatableBody2D" parent="."]
+position = Vector2(2149, 661)
+script = ExtResource("6_psjgf")
+
+[node name="Stroke" type="ColorRect" parent="Elevator"]
+offset_right = 75.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="Fill" type="ColorRect" parent="Elevator"]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 73.0
+offset_bottom = 18.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator"]
+position = Vector2(37.5, 10)
+shape = SubResource("RectangleShape2D_tt5o5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Elevator"]
+libraries = {
+&"": SubResource("AnimationLibrary_vuw0p")
+}
+
+[node name="Area2D" type="Area2D" parent="Elevator"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator/Area2D"]
+position = Vector2(37.473145, -4.9376526)
+shape = SubResource("RectangleShape2D_psjgf")
+
+[connection signal="body_entered" from="Elevator/Area2D" to="Elevator" method="_on_area_2d_body_entered"]

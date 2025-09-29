@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://cymg51wygofex"]
+
+[ext_resource type="Texture2D" uid="uid://40pyftinm2c8" path="res://assets/environment/eye/moving/moving0000.png" id="1_gbqvg"]
+[ext_resource type="Texture2D" uid="uid://csym3ly4ayv82" path="res://assets/environment/eye/moving/moving0001.png" id="2_dexto"]
+[ext_resource type="Texture2D" uid="uid://co07acr24qde0" path="res://assets/environment/eye/moving/moving0002.png" id="3_d38ud"]
+[ext_resource type="Texture2D" uid="uid://coqekqnyg2rwv" path="res://assets/environment/eye/moving/moving0003.png" id="4_cydpi"]
+[ext_resource type="Texture2D" uid="uid://d0ai8v1x8we8k" path="res://assets/environment/eye/moving/moving0004.png" id="5_kipdu"]
+[ext_resource type="Texture2D" uid="uid://choyjwavav1up" path="res://assets/environment/eye/moving/moving0005.png" id="6_wmpbq"]
+[ext_resource type="Texture2D" uid="uid://dndah38f246dd" path="res://assets/environment/eye/moving/moving0006.png" id="7_ll6qk"]
+[ext_resource type="Script" uid="uid://bsl82n8nbggkh" path="res://assets/environment/eye/eye.gd" id="14_1s0m4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4khre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gbqvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dexto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d38ud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cydpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kipdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wmpbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ll6qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ll6qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ll6qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wmpbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kipdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cydpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d38ud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dexto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_gbqvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_gbqvg")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 6.0
+}]
+
+[node name="Eye" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_4khre")
+animation = &"moving"
+frame_progress = 0.12135903
+script = ExtResource("14_1s0m4")

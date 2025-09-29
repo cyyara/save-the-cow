@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dl0tbkng5pcy7" path="res://assets/environment/crate/sprites/crate_0.png" id="1_iob3o"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iob3o"]
-friction = 0.2
+friction = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffjbs"]
 size = Vector2(128, 128)

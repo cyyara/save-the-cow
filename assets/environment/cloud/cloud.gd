@@ -1,5 +1,5 @@
 extends Sprite2D
-@export var random_textures: Array[Texture2D]
+@export var random_textures: Array[SpriteFrames]
 
 func _ready() -> void:
 	if random_textures.size() > 0:
