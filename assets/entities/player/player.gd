@@ -6,7 +6,7 @@ var speed = default_speed
 @export var jump_speed = 400
 @export var gravity = 1000
 var jump_count = 0
-@export var PUSH_STRENGTH = 400
+@export var PUSH_STRENGTH = 300
 
 @export var BulletScene: PackedScene
 var shooting = false

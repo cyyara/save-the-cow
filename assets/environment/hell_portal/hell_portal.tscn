@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://dj80ku0kgk45k"]
+
+[ext_resource type="Texture2D" uid="uid://cvke2336th3o3" path="res://assets/environment/hell_portal/sprites/hell_portal0000.png" id="1_0qbo5"]
+[ext_resource type="Script" uid="uid://66a80tjeuci6" path="res://assets/environment/hell_portal/hell_portal.gd" id="1_rytk3"]
+[ext_resource type="Texture2D" uid="uid://bo5fgrc65smxh" path="res://assets/environment/hell_portal/sprites/hell_portal0001.png" id="2_rytk3"]
+[ext_resource type="Texture2D" uid="uid://4f47fsd237ax" path="res://assets/environment/hell_portal/sprites/hell_portal0002.png" id="3_o46h3"]
+[ext_resource type="Texture2D" uid="uid://bxthttqn0vrnf" path="res://assets/environment/hell_portal/sprites/hell_portal0003.png" id="4_wuxfm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8lmac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0qbo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rytk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o46h3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wuxfm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66whi"]
+size = Vector2(32, 122)
+
+[node name="HellPortal" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_rytk3")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8lmac")
+frame_progress = 0.96072394
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_66whi")

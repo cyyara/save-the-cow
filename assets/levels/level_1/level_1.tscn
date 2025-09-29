@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgoxqke4wm4v3"]
+[gd_scene load_steps=13 format=3 uid="uid://bgoxqke4wm4v3"]
 
 [ext_resource type="Script" uid="uid://b680ufmq7g8h4" path="res://assets/levels/level_1/level_1.gd" id="1_rauqm"]
 [ext_resource type="PackedScene" uid="uid://d2lg1aw8uryil" path="res://assets/environment/cloud/cloud.tscn" id="2_3aeio"]
 [ext_resource type="PackedScene" uid="uid://vs4wsc5j5v3c" path="res://assets/entities/player/player.tscn" id="2_bswci"]
+[ext_resource type="PackedScene" uid="uid://ce3x33siqha3l" path="res://assets/environment/crate/crate.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://c7uuji55gqysk" path="res://assets/environment/flag/flag.tscn" id="4_jwayp"]
+[ext_resource type="PackedScene" uid="uid://dss5ktjn2000d" path="res://assets/entities/basic_enemy/basic_enemy.tscn" id="5_53h1i"]
+[ext_resource type="PackedScene" uid="uid://dj80ku0kgk45k" path="res://assets/environment/hell_portal/hell_portal.tscn" id="7_wynxu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbnc3"]
 size = Vector2(2560, 40)
@@ -35,8 +38,24 @@ color = Color(0.64705884, 0.84705883, 1, 1)
 [node name="Flag" parent="." instance=ExtResource("4_jwayp")]
 position = Vector2(372.38733, 585.88275)
 
+[node name="Flag2" parent="." instance=ExtResource("4_jwayp")]
+position = Vector2(805, 585)
+
+[node name="Flag3" parent="." instance=ExtResource("4_jwayp")]
+position = Vector2(1280, 584)
+
+[node name="HellPortal" parent="." instance=ExtResource("7_wynxu")]
+position = Vector2(2512, 604.00006)
+scale = Vector2(1.25, 1.25)
+
 [node name="Player" parent="." instance=ExtResource("2_bswci")]
-position = Vector2(25, 617)
+position = Vector2(131, 619)
+
+[node name="BasicEnemy" parent="." instance=ExtResource("5_53h1i")]
+position = Vector2(1901, 604)
+
+[node name="Crate" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(1148, 641)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 680)

@@ -10,12 +10,15 @@ friction = 0.2
 size = Vector2(128, 128)
 
 [node name="Crate" type="RigidBody2D"]
+mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_iob3o")
 lock_rotation = true
 script = ExtResource("1_ffjbs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_iob3o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.7)
 shape = SubResource("RectangleShape2D_ffjbs")

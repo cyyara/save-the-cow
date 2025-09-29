@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [node name="BasicEnemy" type="CharacterBody2D"]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.25, 1.25)
 script = ExtResource("1_q3cuh")
 metadata/_edit_group_ = true
 
