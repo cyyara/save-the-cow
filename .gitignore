@@ -1,6 +1,10 @@
 # Godot 4 cache & metadata
 .godot/
 *.tmp
+*.translation
+*.png~
+*.tscn~
+*.gd~
 
 # Export-related
 export.cfg
