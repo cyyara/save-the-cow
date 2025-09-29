@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5dmv"]
-size = Vector2(3, 121)
+size = Vector2(36.666668, 121)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5dmv"]
 bg_color = Color(1, 1, 1, 1)
@@ -69,7 +69,7 @@ sprite_frames = SubResource("SpriteFrames_xxhuj")
 animation = &"on"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 3.5)
+position = Vector2(12.333334, 3.5)
 shape = SubResource("RectangleShape2D_a5dmv")
 
 [node name="Panel" type="Panel" parent="."]
@@ -81,12 +81,14 @@ offset_bottom = 28.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_a5dmv")
 
 [node name="Label" type="Label" parent="Panel"]
+visible = false
 layout_mode = 0
 offset_left = 7.333336
 offset_top = 11.333334
 offset_right = 117.333336
 offset_bottom = 34.33333
-text = "Press WASD to move"
+text = "Press WASD to Move"
 label_settings = SubResource("LabelSettings_a5dmv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -77,3 +77,4 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "shoot":
 		shooting = false
 		speed = default_speed
+		
