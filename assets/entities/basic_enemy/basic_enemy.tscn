@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dss5ktjn2000d"]
+[gd_scene load_steps=11 format=3 uid="uid://dss5ktjn2000d"]
 
 [ext_resource type="Script" uid="uid://ds1doudepnuyb" path="res://assets/entities/basic_enemy/basic_enemy.gd" id="1_q3cuh"]
 [ext_resource type="Texture2D" uid="uid://dmt0vw4rarqc1" path="res://assets/entities/basic_enemy/sprites/idle/idle_0.png" id="2_ayb78"]
+[ext_resource type="Texture2D" uid="uid://v4jvv4480iom" path="res://assets/entities/basic_enemy/sprites/attack/attack0000.png" id="2_laydr"]
 [ext_resource type="Texture2D" uid="uid://dretlcbte523g" path="res://assets/entities/basic_enemy/sprites/walking/basic_enemy_walking0000.png" id="2_q3cuh"]
 [ext_resource type="Texture2D" uid="uid://blk17hl8hf6nu" path="res://assets/entities/basic_enemy/sprites/walking/basic_enemy_walking0001.png" id="3_ayb78"]
+[ext_resource type="Texture2D" uid="uid://cnkui4qmyxxtx" path="res://assets/entities/basic_enemy/sprites/attack/attack0001.png" id="3_tcyj3"]
 [ext_resource type="Texture2D" uid="uid://cquboft7sga4p" path="res://assets/entities/basic_enemy/sprites/walking/basic_enemy_walking0002.png" id="4_laydr"]
 [ext_resource type="Texture2D" uid="uid://bfl5u6tu25nmi" path="res://assets/entities/basic_enemy/sprites/walking/basic_enemy_walking0003.png" id="5_tcyj3"]
 
@@ -13,6 +15,29 @@ height = 110.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d1dn2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_laydr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tcyj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_laydr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tcyj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_laydr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tcyj3")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 3.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_ayb78")
@@ -51,4 +76,8 @@ shape = SubResource("CapsuleShape2D_wt3or")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5, 0)
 sprite_frames = SubResource("SpriteFrames_d1dn2")
-animation = &"idle"
+animation = &"attack"
+frame = 5
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

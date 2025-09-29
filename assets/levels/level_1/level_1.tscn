@@ -23,7 +23,7 @@ size = Vector2(20, 924)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wynxu"]
 size = Vector2(2556, 20)
 
-[node name="Level1" type="Node2D"]
+[node name="Level" type="Node2D"]
 script = ExtResource("1_rauqm")
 CloudScene = ExtResource("2_3aeio")
 metadata/_edit_group_ = true
