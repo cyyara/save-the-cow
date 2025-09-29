@@ -1,0 +1,103 @@
+[gd_scene load_steps=13 format=3 uid="uid://cugthi8kf5pyf"]
+
+[ext_resource type="Script" uid="uid://dbsjeot4fxl1t" path="res://assets/levels/level_2/level_2.gd" id="1_v5ti6"]
+[ext_resource type="PackedScene" uid="uid://d2lg1aw8uryil" path="res://assets/environment/cloud/cloud.tscn" id="2_uimhi"]
+[ext_resource type="PackedScene" uid="uid://c7uuji55gqysk" path="res://assets/environment/flag/flag.tscn" id="3_epxkq"]
+[ext_resource type="PackedScene" uid="uid://dj80ku0kgk45k" path="res://assets/environment/hell_portal/hell_portal.tscn" id="4_gb6w8"]
+[ext_resource type="PackedScene" uid="uid://vs4wsc5j5v3c" path="res://assets/entities/player/player.tscn" id="5_smva7"]
+[ext_resource type="PackedScene" uid="uid://dss5ktjn2000d" path="res://assets/entities/basic_enemy/basic_enemy.tscn" id="6_8kxua"]
+[ext_resource type="PackedScene" uid="uid://ce3x33siqha3l" path="res://assets/environment/crate/crate.tscn" id="7_07d81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbnc3"]
+size = Vector2(2560, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwayp"]
+size = Vector2(2558, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53h1i"]
+size = Vector2(20, 924)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13q1v"]
+size = Vector2(20, 924)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wynxu"]
+size = Vector2(2556, 20)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_v5ti6")
+CloudScene = ExtResource("2_uimhi")
+metadata/_edit_group_ = true
+metadata/_edit_horizontal_guides_ = [680.0, 923.0]
+metadata/_edit_vertical_guides_ = [2.0, 2560.0]
+
+[node name="Sky" type="ColorRect" parent="."]
+offset_right = 2560.0
+offset_bottom = 720.0
+color = Color(0.64705884, 0.84705883, 1, 1)
+
+[node name="Flag" parent="." instance=ExtResource("3_epxkq")]
+position = Vector2(372.38733, 585.88275)
+
+[node name="Flag2" parent="." instance=ExtResource("3_epxkq")]
+position = Vector2(805, 585)
+
+[node name="Flag3" parent="." instance=ExtResource("3_epxkq")]
+position = Vector2(1280, 584)
+
+[node name="HellPortal" parent="." instance=ExtResource("4_gb6w8")]
+position = Vector2(2512, 604.00006)
+scale = Vector2(1.25, 1.25)
+
+[node name="Player" parent="." instance=ExtResource("5_smva7")]
+position = Vector2(131, 619)
+
+[node name="BasicEnemy" parent="." instance=ExtResource("6_8kxua")]
+position = Vector2(1901, 604)
+
+[node name="Crate" parent="." instance=ExtResource("7_07d81")]
+position = Vector2(1148, 641)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 680)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(1280, 20)
+shape = SubResource("RectangleShape2D_sbnc3")
+
+[node name="Stroke" type="ColorRect" parent="Ground"]
+offset_right = 2560.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="Fill" type="ColorRect" parent="Ground"]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 2558.0
+offset_bottom = 38.0
+color = Color(0.2509804, 0.7529412, 0.34117648, 1)
+
+[node name="WorldBorders" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1281, 0)
+shape = SubResource("RectangleShape2D_jwayp")
+
+[node name="Left" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(0, 462)
+shape = SubResource("RectangleShape2D_53h1i")
+
+[node name="Right" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(2560, 462)
+shape = SubResource("RectangleShape2D_13q1v")
+
+[node name="Bottom" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1280, 923)
+shape = SubResource("RectangleShape2D_wynxu")
+
+[node name="ColorRect" type="ColorRect" parent="WorldBorders"]
+offset_left = 2.0
+offset_top = 720.0
+offset_right = 2558.0
+offset_bottom = 923.0
+color = Color(0.5176471, 0.3882353, 0.34509805, 1)
