@@ -43,17 +43,6 @@ func _physics_process(delta: float) -> void:
 		shooting = true
 		speed *= 0.6
 		$AnimatedSprite2D.play("shoot")
-		var bullet = BulletScene.instantiate()
-		bullet.position = global_position
-		if $AnimatedSprite2D.flip_h:
-			bullet.get_child(0).flip_h = true
-			bullet.direction = Vector2.LEFT
-			bullet.position += Vector2(-70, -16)
-		else:
-			bullet.get_child(0).flip_h = false
-			bullet.direction = Vector2.RIGHT
-			bullet.position += Vector2(70, -16)
-		get_tree().current_scene.add_child(bullet)
 
 	velocity.x = input_x * speed
 	
@@ -77,4 +66,15 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "shoot":
 		shooting = false
 		speed = default_speed
+		var bullet = BulletScene.instantiate()
+		bullet.position = global_position
+		if $AnimatedSprite2D.flip_h:
+			bullet.get_child(0).flip_h = true
+			bullet.direction = Vector2.LEFT
+			bullet.position += Vector2(-70, -16)
+		else:
+			bullet.get_child(0).flip_h = false
+			bullet.direction = Vector2.RIGHT
+			bullet.position += Vector2(70, -16)
+		get_tree().current_scene.add_child(bullet)
 		
