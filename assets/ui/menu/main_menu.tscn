@@ -10,10 +10,10 @@ texture = ExtResource("2_b4ard")
 bg_color = Color(18.892157, 18.892157, 18.892157, 0.039215688)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
-bg_color = Color(0.36939895, 0.36939895, 0.36939895, 1)
+bg_color = Color(0.8474744, 0.84747446, 0.8474743, 0.78431374)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
-bg_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
+bg_color = Color(1, 1, 1, 0.78431374)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlkkf"]
 
@@ -22,7 +22,8 @@ layout_mode = 3
 anchor_top = 0.035
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -22.68
+offset_top = -25.2
+offset_bottom = -2.5200195
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8wxpl")
@@ -60,7 +61,6 @@ theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jix8l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nlkkf")
 text = "START GAME"
 
 [node name="exit" type="Button" parent="VBoxContainer"]
