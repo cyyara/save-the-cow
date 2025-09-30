@@ -34,11 +34,11 @@ offset_bottom = 720.0
 color = Color(0.64705884, 0.84705883, 1, 1)
 
 [node name="Flag" parent="." instance=ExtResource("4_jwayp")]
-position = Vector2(372.38733, 585.88275)
+position = Vector2(32, 584)
 message = "move"
 
 [node name="Flag2" parent="." instance=ExtResource("4_jwayp")]
-position = Vector2(805, 585)
+position = Vector2(491, 584)
 message = "jump"
 
 [node name="Flag3" parent="." instance=ExtResource("4_jwayp")]
@@ -50,13 +50,13 @@ position = Vector2(2512, 604.00006)
 scale = Vector2(1.25, 1.25)
 
 [node name="Player" parent="." instance=ExtResource("2_bswci")]
-position = Vector2(131, 619)
+position = Vector2(32, 615)
 
 [node name="BasicEnemy" parent="." instance=ExtResource("5_53h1i")]
-position = Vector2(1901, 604)
+position = Vector2(2191.0002, 604.00006)
 
 [node name="Crate" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(1148, 641)
+position = Vector2(896, 641)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 680)

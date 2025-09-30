@@ -13,6 +13,6 @@ func _ready():
 		
 		var col_x = i * column_size
 		cloud.position.x = randf_range(col_x - column_size/2, col_x + column_size/2)
-		cloud.position.y = randf_range(level_height*0.25, level_height * 0.75)
+		cloud.position.y = randf_range(0, level_height * 0.4)
 		add_child(cloud)
 		move_child(cloud, 1)
