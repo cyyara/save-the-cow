@@ -3,7 +3,6 @@ var health = 3
 var speed = 250
 var patrol_distance = 200
 var detection_range = 300
-
 var start_pos: Vector2
 var direction = 1
 var state = "patrol"
@@ -23,7 +22,6 @@ func _physics_process(delta: float) -> void:
 			chase_player(delta)
 			$AnimatedSprite2D.play("walk")
 		"attack":
-			attack_player()
 			$AnimatedSprite2D.play("attack")
 
 func patrol(_delta):
@@ -54,7 +52,10 @@ func chase_player(_delta):
 		elif position.distance_to(player.position) > detection_range + 50:
 			state = "patrol"
 func attack_player():
-	pass
+		var player = get_tree().get_root().get_node("Level/Player")
+		if player:
+			player.hit()
+	
 func hit():
 	health -= 1
 	if health <= 0: queue_free()
@@ -63,3 +64,4 @@ func hit():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "attack":
 		state = "chase"
+	attack_player()

@@ -36,7 +36,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 3.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -77,7 +77,5 @@ shape = SubResource("CapsuleShape2D_wt3or")
 position = Vector2(-5, 0)
 sprite_frames = SubResource("SpriteFrames_d1dn2")
 animation = &"attack"
-frame = 5
-frame_progress = 1.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

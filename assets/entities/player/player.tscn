@@ -1,14 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://vs4wsc5j5v3c"]
+[gd_scene load_steps=17 format=3 uid="uid://vs4wsc5j5v3c"]
 
 [ext_resource type="Script" uid="uid://bbquet4mof0k7" path="res://assets/entities/player/player.gd" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://bdkkodg10abxn" path="res://assets/entities/player/sprites/idle/idle_0.png" id="1_sweqy"]
 [ext_resource type="Texture2D" uid="uid://bnwgss02hyv1t" path="res://assets/entities/player/sprites/walk/walk_0.png" id="2_2hs0m"]
-[ext_resource type="PackedScene" uid="uid://dsal4hxdeojl0" path="res://assets/items/bullet/bullet.tscn" id="2_fpwjn"]
 [ext_resource type="Texture2D" uid="uid://bgvdtr2hdaeae" path="res://assets/entities/player/sprites/walk/walk_1.png" id="3_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://dlmevydwfep77" path="res://assets/entities/player/sprites/hurt/hurt0000.png" id="3_aun8c"]
+[ext_resource type="Texture2D" uid="uid://bryhj443g0pbh" path="res://assets/entities/player/sprites/hurt/hurt0001.png" id="4_5vyip"]
 [ext_resource type="Texture2D" uid="uid://td3q4rwgytoi" path="res://assets/entities/player/sprites/walk/walk_2.png" id="4_dw050"]
 [ext_resource type="Texture2D" uid="uid://covf8750ga8ed" path="res://assets/entities/player/sprites/fall/fall_0.png" id="4_smehm"]
 [ext_resource type="Texture2D" uid="uid://3tptkjfmj6go" path="res://assets/entities/player/sprites/shoot/shoot0000.png" id="5_58vou"]
 [ext_resource type="Texture2D" uid="uid://dgmroyt6cp87w" path="res://assets/entities/player/sprites/walk/walk_3.png" id="5_b26j0"]
+[ext_resource type="Texture2D" uid="uid://d4ciol3tarbi" path="res://assets/entities/player/sprites/hurt/hurt0002.png" id="5_l66sp"]
 [ext_resource type="Texture2D" uid="uid://bue6wfrxilu1d" path="res://assets/entities/player/sprites/jump/jump_0.png" id="6_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://ygpu4wk852r7" path="res://assets/entities/player/sprites/shoot/shoot0001.png" id="6_fpwjn"]
 [ext_resource type="Texture2D" uid="uid://cee7ogmm1mrgk" path="res://assets/entities/player/sprites/shoot/shoot0002.png" id="7_j7t0r"]
@@ -22,6 +24,20 @@ animations = [{
 "loop": true,
 "name": &"fall",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_aun8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5vyip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l66sp")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -77,7 +93,6 @@ height = 128.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_2hs0m")
-BulletScene = ExtResource("2_fpwjn")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

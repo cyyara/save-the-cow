@@ -7,9 +7,11 @@ var speed = default_speed
 @export var gravity = 1000
 var jump_count = 0
 @export var PUSH_STRENGTH = 300
+var health = 3
 
 var BulletScene = preload("res://assets/items/bullet/bullet.tscn")
 var shooting = false
+var receiving_damage = false
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("idle")
@@ -25,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and can_jump:
 		velocity.y = -jump_speed
 		jump_count += 1
-	if shooting:
+	if shooting or receiving_damage:
 		pass
 	elif not is_on_floor():
 		velocity.y += gravity * delta
@@ -77,4 +79,13 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			bullet.direction = Vector2.RIGHT
 			bullet.position += Vector2(70, -16)
 		get_tree().current_scene.add_child(bullet)
+	
+	if $AnimatedSprite2D.animation == "hurt":
+		health -= 1
+		if health <= 0: queue_free()
+		receiving_damage = false
 		
+func hit():
+	if not receiving_damage:
+		$AnimatedSprite2D.play("hurt")
+		receiving_damage = true
