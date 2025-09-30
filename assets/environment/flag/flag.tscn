@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5dmv"]
-size = Vector2(36.666668, 121)
+size = Vector2(196, 121)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5dmv"]
 bg_color = Color(1, 1, 1, 1)
@@ -69,11 +69,10 @@ sprite_frames = SubResource("SpriteFrames_xxhuj")
 animation = &"on"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12.333334, 3.5)
+position = Vector2(92, 3.5)
 shape = SubResource("RectangleShape2D_a5dmv")
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 offset_left = 42.0
 offset_top = -12.0
 offset_right = 166.0
