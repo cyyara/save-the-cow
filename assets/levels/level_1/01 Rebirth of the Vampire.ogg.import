@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bpwh8yh5dgknd"
+path="res://.godot/imported/01 Rebirth of the Vampire.ogg-a09fecee1faf03a1f39a9490625a8cc7.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/levels/level_1/01 Rebirth of the Vampire.ogg"
+dest_files=["res://.godot/imported/01 Rebirth of the Vampire.ogg-a09fecee1faf03a1f39a9490625a8cc7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

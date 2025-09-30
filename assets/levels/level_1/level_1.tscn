@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgoxqke4wm4v3"]
+[gd_scene load_steps=14 format=3 uid="uid://bgoxqke4wm4v3"]
 
 [ext_resource type="Script" uid="uid://b680ufmq7g8h4" path="res://assets/levels/level_1/level_1.gd" id="1_rauqm"]
 [ext_resource type="PackedScene" uid="uid://vs4wsc5j5v3c" path="res://assets/entities/player/player.tscn" id="2_bswci"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dss5ktjn2000d" path="res://assets/entities/basic_enemy/basic_enemy.tscn" id="5_53h1i"]
 [ext_resource type="Texture2D" uid="uid://fnb1dg7b40qb" path="res://assets/ui/pause/pause.png" id="7_csraq"]
 [ext_resource type="PackedScene" uid="uid://dj80ku0kgk45k" path="res://assets/environment/hell_portal/hell_portal.tscn" id="7_wynxu"]
+[ext_resource type="AudioStream" uid="uid://bpwh8yh5dgknd" path="res://assets/levels/level_1/01 Rebirth of the Vampire.ogg" id="8_csraq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbnc3"]
 size = Vector2(2560, 40)
@@ -124,5 +125,10 @@ focus_mode = 0
 action_mode = 0
 texture_normal = ExtResource("7_csraq")
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_csraq")
+volume_db = -7.0
+autoplay = true
 
 [connection signal="pressed" from="UI/TextureButton" to="Player" method="_on_texture_button_pressed"]
