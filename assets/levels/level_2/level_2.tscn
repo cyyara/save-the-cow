@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://cugthi8kf5pyf"]
+[gd_scene load_steps=18 format=3 uid="uid://cugthi8kf5pyf"]
 
 [ext_resource type="PackedScene" uid="uid://cymg51wygofex" path="res://assets/environment/eye/eye.tscn" id="2_tt5o5"]
 [ext_resource type="PackedScene" uid="uid://edel20bxedlo" path="res://assets/entities/cow/cow.tscn" id="4_15ckf"]
 [ext_resource type="PackedScene" uid="uid://vs4wsc5j5v3c" path="res://assets/entities/player/player.tscn" id="5_diisu"]
 [ext_resource type="PackedScene" uid="uid://dss5ktjn2000d" path="res://assets/entities/basic_enemy/basic_enemy.tscn" id="6_psbqt"]
 [ext_resource type="Script" uid="uid://eoa6dgblnp3t" path="res://assets/levels/level_2/elevator.gd" id="6_psjgf"]
-[ext_resource type="PackedScene" uid="uid://ce3x33siqha3l" path="res://assets/environment/crate/crate.tscn" id="7_40xq7"]
 
 [sub_resource type="GDScript" id="GDScript_tt5o5"]
 
@@ -16,10 +15,10 @@ size = Vector2(2560, 40)
 size = Vector2(2558, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53h1i"]
-size = Vector2(20, 924)
+size = Vector2(20, 1223)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13q1v"]
-size = Vector2(20, 924)
+size = Vector2(20, 1215)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wynxu"]
 size = Vector2(2556, 20)
@@ -59,7 +58,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(1, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2149, 662), Vector2(1000, 300)]
+"values": [Vector2(2149, 662), Vector2(400, 30)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vuw0p"]
@@ -74,20 +73,19 @@ size = Vector2(74, 10.124664)
 [node name="Level" type="Node2D"]
 script = SubResource("GDScript_tt5o5")
 metadata/_edit_group_ = true
-metadata/_edit_horizontal_guides_ = [680.0, 923.0]
-metadata/_edit_vertical_guides_ = [2.0, 2560.0]
+metadata/_edit_horizontal_guides_ = [-292.0]
 
 [node name="Sky" type="ColorRect" parent="."]
+offset_top = -292.0
 offset_right = 2560.0
 offset_bottom = 720.0
 color = Color(0.7, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Cow" parent="." instance=ExtResource("4_15ckf")]
-position = Vector2(2412, 221)
+position = Vector2(2417, 230)
 
 [node name="Eyes" type="CanvasGroup" parent="."]
-metadata/_edit_lock_ = true
 
 [node name="Eye" parent="Eyes" instance=ExtResource("2_tt5o5")]
 position = Vector2(2171.2698, 70.906235)
@@ -117,23 +115,31 @@ scale = Vector2(1.5, 1.5)
 position = Vector2(2294, 420)
 scale = Vector2(1.5, 1.5)
 
+[node name="Eye8" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(402.00003, 555)
+scale = Vector2(1.5, 1.5)
+
+[node name="Eye9" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(195, 377)
+scale = Vector2(1.5, 1.5)
+
+[node name="Eye10" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(2317.768, -146.39844)
+scale = Vector2(1.5, 1.5)
+
+[node name="Eye11" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(1996.5464, -90.7431)
+scale = Vector2(1.5, 1.5)
+
+[node name="Eye12" parent="Eyes" instance=ExtResource("2_tt5o5")]
+position = Vector2(2132.3008, -250.32886)
+scale = Vector2(1.5, 1.5)
+
 [node name="Player" parent="." instance=ExtResource("5_diisu")]
 position = Vector2(131, 619)
 
 [node name="BasicEnemy" parent="." instance=ExtResource("6_psbqt")]
 position = Vector2(1901, 604)
-
-[node name="Crares" type="CanvasGroup" parent="."]
-metadata/_edit_lock_ = true
-
-[node name="Crate" parent="Crares" instance=ExtResource("7_40xq7")]
-position = Vector2(1148, 641)
-
-[node name="Crate2" parent="Crares" instance=ExtResource("7_40xq7")]
-position = Vector2(1238, 641)
-
-[node name="Crate3" parent="Crares" instance=ExtResource("7_40xq7")]
-position = Vector2(1238, 550)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 680)
@@ -160,15 +166,15 @@ color = Color(1, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Top" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(1281, 0)
+position = Vector2(1280, -292)
 shape = SubResource("RectangleShape2D_jwayp")
 
 [node name="Left" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(0, 462)
+position = Vector2(0, 312.5)
 shape = SubResource("RectangleShape2D_53h1i")
 
 [node name="Right" type="CollisionShape2D" parent="WorldBorders"]
-position = Vector2(2560, 462)
+position = Vector2(2560, 316.5)
 shape = SubResource("RectangleShape2D_13q1v")
 
 [node name="Bottom" type="CollisionShape2D" parent="WorldBorders"]
@@ -184,6 +190,7 @@ color = Color(0.4512849, 0.12115648, 0, 1)
 
 [node name="BigPlatform" type="StaticBody2D" parent="."]
 position = Vector2(2432, 508)
+metadata/_edit_lock_ = true
 
 [node name="Stroke" type="ColorRect" parent="BigPlatform"]
 offset_left = -210.0
