@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cugthi8kf5pyf"]
+[gd_scene load_steps=21 format=3 uid="uid://cugthi8kf5pyf"]
 
 [ext_resource type="PackedScene" uid="uid://cymg51wygofex" path="res://assets/environment/eye/eye.tscn" id="2_tt5o5"]
 [ext_resource type="PackedScene" uid="uid://edel20bxedlo" path="res://assets/entities/cow/cow.tscn" id="4_15ckf"]
 [ext_resource type="PackedScene" uid="uid://vs4wsc5j5v3c" path="res://assets/entities/player/player.tscn" id="5_diisu"]
 [ext_resource type="PackedScene" uid="uid://dss5ktjn2000d" path="res://assets/entities/basic_enemy/basic_enemy.tscn" id="6_psbqt"]
 [ext_resource type="Script" uid="uid://eoa6dgblnp3t" path="res://assets/levels/level_2/elevator.gd" id="6_psjgf"]
+[ext_resource type="PackedScene" uid="uid://dyxuy1c2ctb4f" path="res://assets/environment/barrel/barrel.tscn" id="6_vuw0p"]
 
 [sub_resource type="GDScript" id="GDScript_tt5o5"]
 
@@ -147,6 +148,15 @@ position = Vector2(131, 619)
 [node name="BasicEnemy" parent="." instance=ExtResource("6_psbqt")]
 position = Vector2(1901, 604)
 
+[node name="BasicEnemy2" parent="." instance=ExtResource("6_psbqt")]
+position = Vector2(1334, -46)
+
+[node name="BasicEnemy3" parent="." instance=ExtResource("6_psbqt")]
+position = Vector2(1248, -46)
+
+[node name="BasicEnemy4" parent="." instance=ExtResource("6_psbqt")]
+position = Vector2(1420, -46.000004)
+
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 680)
 metadata/_edit_group_ = true
@@ -209,6 +219,10 @@ offset_right = 1259.0
 offset_bottom = 38.0
 color = Color(1, 0, 0, 1)
 metadata/_edit_lock_ = true
+
+[node name="Barrel" parent="." instance=ExtResource("6_vuw0p")]
+position = Vector2(172, -15)
+lock_rotation = true
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
 metadata/_edit_lock_ = true

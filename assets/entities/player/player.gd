@@ -1,6 +1,5 @@
 extends CharacterBody2D
 class_name Player
-
 @export var default_speed = 400
 var speed = default_speed
 @export var jump_speed = 400
@@ -14,6 +13,7 @@ var shooting = false
 var receiving_damage = false
 
 func _ready() -> void:
+	add_to_group("shootable")
 	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 			var collision = get_slide_collision(i)
 			var body = collision.get_collider()
 			
-			if body is Crate:
+			if body is Crate or body is Barrel:
 				var normal = collision.get_normal()
 			
 				if sign(input_x) == -sign(normal.x):
