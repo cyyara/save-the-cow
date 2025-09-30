@@ -35,12 +35,15 @@ color = Color(0.64705884, 0.84705883, 1, 1)
 
 [node name="Flag" parent="." instance=ExtResource("4_jwayp")]
 position = Vector2(372.38733, 585.88275)
+message = "move"
 
 [node name="Flag2" parent="." instance=ExtResource("4_jwayp")]
 position = Vector2(805, 585)
+message = "jump"
 
 [node name="Flag3" parent="." instance=ExtResource("4_jwayp")]
 position = Vector2(1280, 584)
+message = "shoot"
 
 [node name="HellPortal" parent="." instance=ExtResource("7_wynxu")]
 position = Vector2(2512, 604.00006)

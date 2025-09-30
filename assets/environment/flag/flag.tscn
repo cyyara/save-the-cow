@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7uuji55gqysk"]
+[gd_scene load_steps=15 format=3 uid="uid://c7uuji55gqysk"]
 
 [ext_resource type="Script" uid="uid://dkmjs5f41vrtu" path="res://assets/environment/flag/flag.gd" id="1_yaenj"]
 [ext_resource type="Texture2D" uid="uid://cya46ktttn2bq" path="res://assets/environment/flag/sprites/off/flag_off_0.png" id="2_a5dmv"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dir232bu5nmxm" path="res://assets/environment/flag/sprites/on/flag_on_0.png" id="5_keb2v"]
 [ext_resource type="Texture2D" uid="uid://b2n3wmbxat3uc" path="res://assets/environment/flag/sprites/on/flag_on_1.png" id="6_ateu3"]
 [ext_resource type="Texture2D" uid="uid://k5x0u0vyftvg" path="res://assets/environment/flag/sprites/on/flag_on_2.png" id="7_xn7cp"]
+[ext_resource type="Texture2D" uid="uid://dslfqsmsftcb2" path="res://assets/environment/flag/sprites/message/jump/jump_with.png" id="8_ateu3"]
+[ext_resource type="Texture2D" uid="uid://vqb602yl5he5" path="res://assets/environment/flag/sprites/message/move/move_with.png" id="9_xn7cp"]
+[ext_resource type="Texture2D" uid="uid://lou7b8k82exh" path="res://assets/environment/flag/sprites/message/shoot/shoot_with0000.png" id="10_xxhuj"]
+[ext_resource type="Texture2D" uid="uid://dl3uq11650haq" path="res://assets/environment/flag/sprites/message/shoot/shoot_with0001.png" id="11_ewqfn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xxhuj"]
 animations = [{
@@ -42,21 +46,40 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5dmv"]
 size = Vector2(196, 121)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5dmv"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="LabelSettings" id="LabelSettings_a5dmv"]
-font_size = 11
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="SpriteFrames" id="SpriteFrames_ykwcl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ateu3")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xn7cp")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_xxhuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ewqfn")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 2.0
+}]
 
 [node name="Flag" type="Area2D"]
 scale = Vector2(1.5, 1.5)
@@ -72,22 +95,11 @@ animation = &"on"
 position = Vector2(92, 3.5)
 shape = SubResource("RectangleShape2D_a5dmv")
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = 42.0
-offset_top = -12.0
-offset_right = 166.0
-offset_bottom = 28.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_a5dmv")
-
-[node name="Label" type="Label" parent="Panel"]
-visible = false
-layout_mode = 0
-offset_left = 7.333336
-offset_top = 11.333334
-offset_right = 117.333336
-offset_bottom = 34.33333
-text = "Press WASD to Move"
-label_settings = SubResource("LabelSettings_a5dmv")
+[node name="Message" type="AnimatedSprite2D" parent="."]
+position = Vector2(107.33335, 3.333333)
+scale = Vector2(0.6380209, 0.6380208)
+sprite_frames = SubResource("SpriteFrames_ykwcl")
+animation = &"shoot"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
