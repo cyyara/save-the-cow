@@ -145,16 +145,16 @@ scale = Vector2(1.5, 1.5)
 [node name="Player" parent="." instance=ExtResource("5_diisu")]
 position = Vector2(131, 619)
 
-[node name="BasicEnemy" parent="." instance=ExtResource("6_psbqt")]
+[node name="BasicEnemy" parent="." groups=["enemy", "guardian"] instance=ExtResource("6_psbqt")]
 position = Vector2(1901, 604)
 
-[node name="BasicEnemy2" parent="." instance=ExtResource("6_psbqt")]
+[node name="BasicEnemy2" parent="." groups=["enemy"] instance=ExtResource("6_psbqt")]
 position = Vector2(1334, -46)
 
-[node name="BasicEnemy3" parent="." instance=ExtResource("6_psbqt")]
+[node name="BasicEnemy3" parent="." groups=["enemy"] instance=ExtResource("6_psbqt")]
 position = Vector2(1248, -46)
 
-[node name="BasicEnemy4" parent="." instance=ExtResource("6_psbqt")]
+[node name="BasicEnemy4" parent="." groups=["enemy"] instance=ExtResource("6_psbqt")]
 position = Vector2(1420, -46.000004)
 
 [node name="Ground" type="StaticBody2D" parent="."]

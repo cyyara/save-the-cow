@@ -23,12 +23,12 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		jump_count = 0
 		velocity.y = 0
-	
-	if Input.is_action_just_pressed("jump") and can_jump:
-		velocity.y = -jump_speed
-		jump_count += 1
+
 	if shooting or receiving_damage:
 		pass
+	elif Input.is_action_just_pressed("jump") and can_jump:
+		velocity.y = -jump_speed
+		jump_count += 1
 	elif not is_on_floor():
 		velocity.y += gravity * delta
 		if velocity.y < 0 and jump_count == 2:

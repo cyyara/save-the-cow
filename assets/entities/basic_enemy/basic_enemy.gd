@@ -2,7 +2,7 @@ extends CharacterBody2D
 var health = 3
 var speed = 250
 var patrol_distance = 200
-var detection_range = 300
+var detection_range = 400
 var start_pos: Vector2
 var direction = 1
 var state = "patrol"

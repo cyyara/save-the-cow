@@ -52,11 +52,11 @@ scale = Vector2(1.25, 1.25)
 [node name="Player" parent="." instance=ExtResource("2_bswci")]
 position = Vector2(32, 615)
 
-[node name="BasicEnemy" parent="." instance=ExtResource("5_53h1i")]
+[node name="BasicEnemy" parent="." groups=["enemy"] instance=ExtResource("5_53h1i")]
 position = Vector2(2191.0002, 604.00006)
 
 [node name="Crate" parent="." instance=ExtResource("3_rus8k")]
-position = Vector2(896, 641)
+position = Vector2(896, 636)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 680)
