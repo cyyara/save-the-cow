@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cugthi8kf5pyf"]
+[gd_scene load_steps=22 format=3 uid="uid://cugthi8kf5pyf"]
 
 [ext_resource type="PackedScene" uid="uid://cymg51wygofex" path="res://assets/environment/eye/eye.tscn" id="2_tt5o5"]
 [ext_resource type="PackedScene" uid="uid://edel20bxedlo" path="res://assets/entities/cow/cow.tscn" id="4_15ckf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dss5ktjn2000d" path="res://assets/entities/basic_enemy/basic_enemy.tscn" id="6_psbqt"]
 [ext_resource type="Script" uid="uid://eoa6dgblnp3t" path="res://assets/levels/level_2/elevator.gd" id="6_psjgf"]
 [ext_resource type="PackedScene" uid="uid://dyxuy1c2ctb4f" path="res://assets/environment/barrel/barrel.tscn" id="6_vuw0p"]
+[ext_resource type="Texture2D" uid="uid://fnb1dg7b40qb" path="res://assets/ui/pause/pause.png" id="7_vuw0p"]
 
 [sub_resource type="GDScript" id="GDScript_tt5o5"]
 
@@ -141,9 +142,6 @@ scale = Vector2(1.5, 1.5)
 [node name="Eye12" parent="Eyes" instance=ExtResource("2_tt5o5")]
 position = Vector2(2132.3008, -250.32886)
 scale = Vector2(1.5, 1.5)
-
-[node name="Player" parent="." instance=ExtResource("5_diisu")]
-position = Vector2(131, 619)
 
 [node name="BasicEnemy" parent="." groups=["enemy", "guardian"] instance=ExtResource("6_psbqt")]
 position = Vector2(1901, 604)
@@ -305,4 +303,27 @@ libraries = {
 position = Vector2(37.473145, -4.9376526)
 shape = SubResource("RectangleShape2D_psjgf")
 
+[node name="Player" parent="." instance=ExtResource("5_diisu")]
+position = Vector2(131, 619)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hearts" type="CanvasGroup" parent="UI"]
+
+[node name="Bullets" type="CanvasGroup" parent="UI"]
+
+[node name="TextureButton" type="TextureButton" parent="UI"]
+process_mode = 3
+offset_left = 1200.0
+offset_top = 30.0
+offset_right = 1250.0
+offset_bottom = 80.0
+focus_mode = 0
+mouse_behavior_recursive = 2
+mouse_force_pass_scroll_events = false
+action_mode = 0
+texture_normal = ExtResource("7_vuw0p")
+metadata/_edit_use_anchors_ = true
+
 [connection signal="body_entered" from="Elevator/Area2D" to="Elevator" method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="UI/TextureButton" to="Player" method="_on_texture_button_pressed"]

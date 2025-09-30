@@ -1,44 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://ga1smv5dsxl1"]
-
-[ext_resource type="Script" uid="uid://cwksphxxsyy1" path="res://assets/ui/game_icons/icons.gd" id="1_wtq4y"]
+[gd_scene format=3 uid="uid://ga1smv5dsxl1"]
 
 [node name="Icons" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_wtq4y")
 
 [node name="Hearts" type="CanvasGroup" parent="."]
 
-[node name="Heart" type="Marker2D" parent="Hearts"]
-position = Vector2(55, 665)
-
-[node name="Heart2" type="Marker2D" parent="Hearts"]
-position = Vector2(110, 665)
-
-[node name="Heart3" type="Marker2D" parent="Hearts"]
-position = Vector2(165, 665)
-
 [node name="Bullets" type="CanvasGroup" parent="."]
-
-[node name="Bullet" type="Marker2D" parent="Bullets"]
-position = Vector2(1225, 665)
-
-[node name="Bullet2" type="Marker2D" parent="Bullets"]
-position = Vector2(1170, 665)
-
-[node name="Bullet3" type="Marker2D" parent="Bullets"]
-position = Vector2(1115, 665)
-
-[node name="Bullet4" type="Marker2D" parent="Bullets"]
-position = Vector2(1060, 665)
-
-[node name="Bullet5" type="Marker2D" parent="Bullets"]
-position = Vector2(1005, 665)
-
-[node name="Bullet6" type="Marker2D" parent="Bullets"]
-position = Vector2(950, 665)
 
 [node name="Pause" type="Marker2D" parent="."]
 position = Vector2(55, 55)

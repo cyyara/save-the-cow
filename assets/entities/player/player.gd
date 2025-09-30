@@ -6,7 +6,10 @@ var speed = default_speed
 @export var gravity = 1000
 var jump_count = 0
 @export var PUSH_STRENGTH = 300
-var health = 3
+var max_health = 3
+var health = max_health
+var max_bullets = 6
+var bullets = max_bullets
 
 var BulletScene = preload("res://assets/items/bullet/bullet.tscn")
 var shooting = false
@@ -14,10 +17,29 @@ var receiving_damage = false
 func _ready() -> void:
 	add_to_group("shootable")
 	$AnimatedSprite2D.play("idle")
-	var hearts = $Camera2D/Icons/Hearts
-	var bullets = $Camera2D/Icons/Bullets
 	
-
+	var heart_container = get_tree().current_scene.get_node("UI/Hearts")
+	var bullet_container = get_tree().current_scene.get_node("UI/Bullets")
+	
+	var heart_on_texture = preload("res://assets/ui/heart/remaining.png")
+	var bullet_on_texture = preload("res://assets/ui/bullet/on.png")
+	var h_pos = Vector2(55, 665)
+	var b_pos = Vector2(1225, 665)
+	
+	for i in range(max_health):
+		var h = Sprite2D.new()
+		h.texture = heart_on_texture
+		h.position = h_pos
+		h_pos.x += 55
+		heart_container.add_child(h)
+	for i in range(max_bullets):
+		var b = Sprite2D.new()
+		b.texture = bullet_on_texture
+		b.position = b_pos
+		b_pos.x -= 55
+		bullet_container.add_child(b)
+	
+		
 func _physics_process(delta: float) -> void:
 	var input_x = Input.get_axis("move_left", "move_right")
 	var can_jump = jump_count < 2
@@ -42,7 +64,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.play("idle")
 	
-	var can_shoot = is_on_floor() and not shooting and not receiving_damage
+	var can_shoot = is_on_floor() and not shooting and not receiving_damage and bullets > 0
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		shooting = true
 		speed *= 0.6
@@ -81,9 +103,19 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			bullet.direction = Vector2.RIGHT
 			bullet.position += Vector2(70, -16)
 		get_tree().current_scene.add_child(bullet)
+		bullets -= 1
+		
+		var bullet_container = get_tree().current_scene.get_node("UI/Bullets")
+		var bullet_off_texture = preload("res://assets/ui/bullet/off.png")
+		
+		bullet_container.get_child(bullets).texture = bullet_off_texture
 	
 	if $AnimatedSprite2D.animation == "hurt":
+		var heart_container = get_tree().current_scene.get_node("UI/Hearts")
+		var heart_off_texture = preload("res://assets/ui/heart/lost.png")
+
 		health -= 1
+		heart_container.get_child(health).texture = heart_off_texture
 		if health <= 0: queue_free()
 		receiving_damage = false
 		
@@ -91,3 +123,7 @@ func hit():
 	if not receiving_damage:
 		$AnimatedSprite2D.play("hurt")
 		receiving_damage = true
+
+
+func _on_texture_button_pressed() -> void:
+	get_tree().paused = !get_tree().paused
