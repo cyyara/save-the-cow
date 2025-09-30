@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyxuy1c2ctb4f"]
+[gd_scene load_steps=10 format=3 uid="uid://dyxuy1c2ctb4f"]
 
 [ext_resource type="Texture2D" uid="uid://bgxdyosqskkhj" path="res://assets/environment/barrel/sprites/barrel/barrel.png" id="1_dvsx1"]
 [ext_resource type="Script" uid="uid://1j4eeuxm4cq1" path="res://assets/environment/barrel/barrel.gd" id="1_neh48"]
+[ext_resource type="Texture2D" uid="uid://baoh5vinvcvse" path="res://assets/environment/barrel/sprites/explosion/explode0000.png" id="3_ipqkh"]
+[ext_resource type="Texture2D" uid="uid://ddm0k8ed5f51g" path="res://assets/environment/barrel/sprites/explosion/explode0001.png" id="4_ywp6r"]
+[ext_resource type="Texture2D" uid="uid://bqmrv60uqh11" path="res://assets/environment/barrel/sprites/explosion/explode0002.png" id="5_3nv8b"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_neh48"]
 friction = 0.7
@@ -11,10 +14,37 @@ size = Vector2(70, 93)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_neh48"]
 animations = [{
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ipqkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ywp6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3nv8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ipqkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ywp6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3nv8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ipqkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ywp6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3nv8b")
+}],
+"loop": false,
 "name": &"explode",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx2t8"]
@@ -24,20 +54,42 @@ size = Vector2(452, 92)
 physics_material_override = SubResource("PhysicsMaterial_neh48")
 script = ExtResource("1_neh48")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-5, -4)
-texture = ExtResource("1_dvsx1")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2.5)
 shape = SubResource("RectangleShape2D_neh48")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -28.000008)
+scale = Vector2(1.16, 1.16)
 sprite_frames = SubResource("SpriteFrames_neh48")
 animation = &"explode"
+frame = 8
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(121, -26.000008)
+scale = Vector2(1.16, 1.16)
+sprite_frames = SubResource("SpriteFrames_neh48")
+animation = &"explode"
+frame = 8
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-125.99999, -26.000008)
+scale = Vector2(1.16, 1.16)
+sprite_frames = SubResource("SpriteFrames_neh48")
+animation = &"explode"
+frame = 8
+frame_progress = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, -4)
+texture = ExtResource("1_dvsx1")
 
 [node name="ExplosionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_yx2t8")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

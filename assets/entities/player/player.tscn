@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://vs4wsc5j5v3c"]
+[gd_scene load_steps=18 format=3 uid="uid://vs4wsc5j5v3c"]
 
 [ext_resource type="Script" uid="uid://bbquet4mof0k7" path="res://assets/entities/player/player.gd" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://bdkkodg10abxn" path="res://assets/entities/player/sprites/idle/idle_0.png" id="1_sweqy"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bue6wfrxilu1d" path="res://assets/entities/player/sprites/jump/jump_0.png" id="6_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://ygpu4wk852r7" path="res://assets/entities/player/sprites/shoot/shoot0001.png" id="6_fpwjn"]
 [ext_resource type="Texture2D" uid="uid://cee7ogmm1mrgk" path="res://assets/entities/player/sprites/shoot/shoot0002.png" id="7_j7t0r"]
+[ext_resource type="PackedScene" uid="uid://ga1smv5dsxl1" path="res://assets/ui/game_icons/icons.tscn" id="15_5vyip"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n7ghd"]
 animations = [{
@@ -108,5 +109,7 @@ limit_top = -290
 limit_right = 2560
 limit_bottom = 820
 position_smoothing_enabled = true
+
+[node name="Icons" parent="Camera2D" instance=ExtResource("15_5vyip")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

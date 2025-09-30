@@ -11,10 +11,12 @@ var health = 3
 var BulletScene = preload("res://assets/items/bullet/bullet.tscn")
 var shooting = false
 var receiving_damage = false
-
 func _ready() -> void:
 	add_to_group("shootable")
 	$AnimatedSprite2D.play("idle")
+	var hearts = $Camera2D/Icons/Hearts
+	var bullets = $Camera2D/Icons/Bullets
+	
 
 func _physics_process(delta: float) -> void:
 	var input_x = Input.get_axis("move_left", "move_right")
