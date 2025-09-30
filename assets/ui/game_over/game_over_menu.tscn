@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhqdnnpmb87jh"]
+
+[ext_resource type="Script" uid="uid://fcof8nuebny0" path="res://assets/ui/game_over/game_over_menu.gd" id="1_h4qs3"]
+[ext_resource type="Texture2D" uid="uid://b83y224msfwhv" path="res://assets/ui/game_over/sprites/game_over0000.png" id="2_osq5b"]
+[ext_resource type="Texture2D" uid="uid://cv0mhwrkkqc2t" path="res://assets/ui/game_over/sprites/game_over0001.png" id="3_sxsum"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4j5i6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_osq5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sxsum")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h4qs3")
+
+[node name="GameOverSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(638, 361)
+sprite_frames = SubResource("SpriteFrames_4j5i6")
+frame = 1
+frame_progress = 0.87082934
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -325.0
+offset_top = -304.0
+offset_right = 325.0
+offset_bottom = -204.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="retry" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "RETRY"
+
+[node name="exit" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "EXIT"
