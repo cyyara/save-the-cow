@@ -10,7 +10,8 @@ func _ready():
 	exit_button.pressed.connect(_on_exit_pressed)  
 
 func _on_retry_pressed():
-	get_tree().reload_current_scene()
+	var last = get_tree().get_meta("last_scene")
+	get_tree().change_scene_to_file(last)
 
 func _on_exit_pressed():
 	get_tree().change_scene_to_file("res://assets/ui/menu/main_menu.tscn")

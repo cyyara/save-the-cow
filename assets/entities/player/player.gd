@@ -116,7 +116,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 		health -= 1
 		heart_container.get_child(health).texture = heart_off_texture
-		if health <= 0: queue_free()
+		get_tree().set_meta("last_scene", get_tree().current_scene.scene_file_path)
+		if health <= 0: get_tree().change_scene_to_file("res://assets/ui/game_over/game_over_menu.tscn")
 		receiving_damage = false
 		
 func hit():
