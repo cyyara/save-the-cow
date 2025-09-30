@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.play("idle")
 	
-	var can_shoot = is_on_floor() and not shooting
+	var can_shoot = is_on_floor() and not shooting and not receiving_damage
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		shooting = true
 		speed *= 0.6
