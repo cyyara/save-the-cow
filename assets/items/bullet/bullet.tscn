@@ -16,4 +16,7 @@ texture = ExtResource("1_55t3g")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_b7ni8")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-8, -5, 16, 9)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
