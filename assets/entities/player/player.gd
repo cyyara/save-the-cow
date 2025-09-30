@@ -8,7 +8,7 @@ var speed = default_speed
 var jump_count = 0
 @export var PUSH_STRENGTH = 300
 
-@export var BulletScene: PackedScene
+var BulletScene = preload("res://assets/items/bullet/bullet.tscn")
 var shooting = false
 
 func _ready() -> void:
