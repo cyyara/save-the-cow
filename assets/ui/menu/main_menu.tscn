@@ -1,31 +1,19 @@
 [gd_scene load_steps=8 format=3 uid="uid://bs7u0qy21o8dc"]
 
-[ext_resource type="Texture2D" uid="uid://u6wvpuslf20w" path="res://assets/entities/cow/sprites/cow_idle0000.png" id="1_06t4h"]
-[ext_resource type="Script" uid="uid://car8o706at17n" path="res://assets/ui/main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://car8o706at17n" path="res://assets/ui/menu/main_menu.gd" id="1_8wxpl"]
+[ext_resource type="Texture2D" uid="uid://cfg26vu6fpyvr" path="res://assets/ui/menu/sprites/menu.png" id="2_b4ard"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vrkn"]
-texture = ExtResource("1_06t4h")
+texture = ExtResource("2_b4ard")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
 bg_color = Color(18.892157, 18.892157, 18.892157, 0.039215688)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
 bg_color = Color(0.36939895, 0.36939895, 0.36939895, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
 bg_color = Color(0.78039217, 0.78039217, 0.78039217, 1)
-corner_radius_top_left = 32
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlkkf"]
 
@@ -37,7 +25,7 @@ anchor_bottom = 1.0
 offset_top = -22.68
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7vrkn")
+script = ExtResource("1_8wxpl")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -50,16 +38,16 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_7vrkn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -184.5
-offset_right = 300.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -423.0
+offset_top = -44.25998
+offset_bottom = 139.74002
+grow_horizontal = 0
+grow_vertical = 2
 theme_override_constants/separation = 18
 
 [node name="startgame" type="Button" parent="VBoxContainer"]
