@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 			attack_player()
 			$AnimatedSprite2D.play("attack")
 
-func patrol(delta):
+func patrol(_delta):
 	velocity.x = direction * speed
 	move_and_slide()
 	
@@ -42,7 +42,7 @@ func check_for_player():
 	if player and position.distance_to(player.position) <= detection_range:
 		state = "chase"
 
-func chase_player(delta):
+func chase_player(_delta):
 	var player = get_tree().get_root().get_node("Level/Player")
 	if player:
 		direction = 1 if (player.position.x > position.x) else -1
