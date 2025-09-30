@@ -18,8 +18,7 @@ func hit():
 		$AnimatedSprite2D3.play("explode")
 		for body in $ExplosionArea.get_overlapping_bodies():
 			if body.is_in_group("shootable") and body is not Barrel:
-				body.queue_free()
-
+				body.kill()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()

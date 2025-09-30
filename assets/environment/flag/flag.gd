@@ -1,5 +1,5 @@
 extends Area2D
-@export_enum("move", "jump", "shoot", "off") var message:String = "off"
+@export_enum("move", "jump", "shoot", "doublejump", "off") var message:String = "off"
 
 
 # Called when the node enters the scene tree for the first time.

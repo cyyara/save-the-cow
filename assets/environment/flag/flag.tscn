@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7uuji55gqysk"]
+[gd_scene load_steps=18 format=3 uid="uid://c7uuji55gqysk"]
 
 [ext_resource type="Script" uid="uid://dkmjs5f41vrtu" path="res://assets/environment/flag/flag.gd" id="1_yaenj"]
 [ext_resource type="Texture2D" uid="uid://cya46ktttn2bq" path="res://assets/environment/flag/sprites/off/flag_off_0.png" id="2_a5dmv"]
@@ -8,8 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://b2n3wmbxat3uc" path="res://assets/environment/flag/sprites/on/flag_on_1.png" id="6_ateu3"]
 [ext_resource type="Texture2D" uid="uid://k5x0u0vyftvg" path="res://assets/environment/flag/sprites/on/flag_on_2.png" id="7_xn7cp"]
 [ext_resource type="Texture2D" uid="uid://dslfqsmsftcb2" path="res://assets/environment/flag/sprites/message/jump/jump_with.png" id="8_ateu3"]
+[ext_resource type="Texture2D" uid="uid://d17iqsj7devok" path="res://assets/environment/flag/sprites/message/double_jump/double_jump0000.png" id="9_ewqfn"]
 [ext_resource type="Texture2D" uid="uid://vqb602yl5he5" path="res://assets/environment/flag/sprites/message/move/move_with.png" id="9_xn7cp"]
 [ext_resource type="Texture2D" uid="uid://lou7b8k82exh" path="res://assets/environment/flag/sprites/message/shoot/shoot_with0000.png" id="10_xxhuj"]
+[ext_resource type="Texture2D" uid="uid://b8p2sy2o810t" path="res://assets/environment/flag/sprites/message/double_jump/double_jump0001.png" id="10_ykwcl"]
+[ext_resource type="Texture2D" uid="uid://c8tsm8xe6isxe" path="res://assets/environment/flag/sprites/message/double_jump/double_jump0002.png" id="11_1bmf3"]
 [ext_resource type="Texture2D" uid="uid://dl3uq11650haq" path="res://assets/environment/flag/sprites/message/shoot/shoot_with0001.png" id="11_ewqfn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xxhuj"]
@@ -50,11 +53,25 @@ size = Vector2(196, 121)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("9_ewqfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ykwcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1bmf3")
+}],
+"loop": true,
+"name": &"doublejump",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("8_ateu3")
 }],
 "loop": true,
 "name": &"jump",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -99,7 +116,7 @@ shape = SubResource("RectangleShape2D_a5dmv")
 position = Vector2(107.33335, 3.333333)
 scale = Vector2(0.6380209, 0.6380208)
 sprite_frames = SubResource("SpriteFrames_ykwcl")
-animation = &"shoot"
+animation = &"off"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

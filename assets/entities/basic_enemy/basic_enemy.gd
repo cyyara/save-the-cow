@@ -60,7 +60,9 @@ func hit():
 	health -= 1
 	if health <= 0: queue_free()
 
-
+func kill():
+	queue_free()
+	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "attack":
 		state = "chase"

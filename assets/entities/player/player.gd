@@ -128,3 +128,7 @@ func hit():
 
 func _on_texture_button_pressed() -> void:
 	get_tree().paused = !get_tree().paused
+
+func kill():
+	health = 1
+	hit()
