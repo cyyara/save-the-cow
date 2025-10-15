@@ -1,81 +1,68 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs7u0qy21o8dc"]
+[gd_scene load_steps=13 format=3 uid="uid://bs7u0qy21o8dc"]
 
 [ext_resource type="Script" uid="uid://car8o706at17n" path="res://assets/ui/menu/main_menu.gd" id="1_8wxpl"]
-[ext_resource type="Texture2D" uid="uid://cfg26vu6fpyvr" path="res://assets/ui/menu/sprites/menu.png" id="2_b4ard"]
+[ext_resource type="Texture2D" uid="uid://dvqymckuvnh00" path="res://assets/ui/menu/sprites/start_menu_background.png" id="2_84jvi"]
+[ext_resource type="PackedScene" uid="uid://cymg51wygofex" path="res://assets/environment/eye/eye.tscn" id="2_b4ard"]
+[ext_resource type="PackedScene" uid="uid://edel20bxedlo" path="res://assets/entities/cow/cow.tscn" id="3_ift77"]
+[ext_resource type="Texture2D" uid="uid://cj6lun03qqyli" path="res://assets/ui/menu/sprites/start_game0000.png" id="3_mwiuv"]
+[ext_resource type="Texture2D" uid="uid://c143ln46moctv" path="res://assets/ui/menu/sprites/start_game0002.png" id="4_wuiqy"]
+[ext_resource type="Texture2D" uid="uid://do61yj77bxxrr" path="res://assets/ui/menu/sprites/start_game0001.png" id="5_vnoh6"]
+[ext_resource type="Texture2D" uid="uid://bvw5tubchwbbo" path="res://assets/ui/menu/sprites/title_text.png" id="6_j6v6j"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vrkn"]
-texture = ExtResource("2_b4ard")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t87m1"]
+texture = ExtResource("3_mwiuv")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
-bg_color = Color(18.892157, 18.892157, 18.892157, 0.039215688)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ilsca"]
+texture = ExtResource("4_wuiqy")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
-bg_color = Color(0.8474744, 0.84747446, 0.8474743, 0.78431374)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jvtv0"]
+texture = ExtResource("5_vnoh6")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
-bg_color = Color(1, 1, 1, 0.78431374)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8qyn5"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlkkf"]
-
-[node name="MainMenu" type="Control"]
-layout_mode = 3
-anchor_top = 0.035
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -25.2
-offset_bottom = -2.5200195
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MainMenu" type="MarginContainer"]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
 script = ExtResource("1_8wxpl")
+metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_7vrkn")
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_84jvi")
+centered = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -423.0
-offset_top = -44.25998
-offset_bottom = 139.74002
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/separation = 18
+[node name="StartButtonContainer" type="MarginContainer" parent="Background"]
+offset_left = 188.00003
+offset_top = 406.99997
+offset_right = 588.0
+offset_bottom = 506.99997
+scale = Vector2(0.72000027, 0.72000027)
+size_flags_horizontal = 0
+size_flags_vertical = 4
 
-[node name="startgame" type="Button" parent="VBoxContainer"]
+[node name="StartButton" type="Button" parent="Background/StartButtonContainer"]
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_fu7sn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jix8l")
-theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
-text = "START GAME"
+theme_override_styles/normal = SubResource("StyleBoxTexture_t87m1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ilsca")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jvtv0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8qyn5")
 
-[node name="exit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_fu7sn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jix8l")
-theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nlkkf")
-text = "EXIT"
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(322, 182)
+scale = Vector2(0.87178874, 0.87178874)
+texture = ExtResource("6_j6v6j")
 
-[connection signal="pressed" from="VBoxContainer/startgame" to="." method="_on_startgame_pressed"]
-[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[node name="Eye" parent="." instance=ExtResource("2_b4ard")]
+position = Vector2(898, 118)
+
+[node name="Eye" parent="Eye" instance=ExtResource("2_b4ard")]
+position = Vector2(255, 64)
+
+[node name="Eye" parent="Eye/Eye" instance=ExtResource("2_b4ard")]
+position = Vector2(-283, 118)
+
+[node name="Cow" parent="Eye/Eye/Eye" instance=ExtResource("3_ift77")]
+position = Vector2(219, 186)
+
+[connection signal="pressed" from="Background/StartButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
