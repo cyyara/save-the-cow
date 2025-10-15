@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h7gfr6sy7sj6"
-path="res://.godot/imported/exit0000.png-791591392bdfb9837966e919f05cac03.ctex"
+uid="uid://c430yx02hfphl"
+path="res://.godot/imported/retry_level0002.png-47a5b9b8e522ea55d0b23da38456afa3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/game_won/exit/exit0000.png"
-dest_files=["res://.godot/imported/exit0000.png-791591392bdfb9837966e919f05cac03.ctex"]
+source_file="res://assets/ui/game_over/sprites/retry_level0002.png"
+dest_files=["res://.godot/imported/retry_level0002.png-47a5b9b8e522ea55d0b23da38456afa3.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dwnvl8u8ub33l"]
+[gd_scene load_steps=20 format=3 uid="uid://dwnvl8u8ub33l"]
 
 [ext_resource type="Texture2D" uid="uid://c5lha6l2k4si2" path="res://assets/ui/game_won/you_won_0.png" id="1_flkvw"]
 [ext_resource type="Script" uid="uid://t3tu465gl64q" path="res://assets/ui/game_won/winning_screen.gd" id="1_urij8"]
@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c72srsanqu7as" path="res://assets/ui/game_won/play_again_button/play_again0002.png" id="3_flkvw"]
 [ext_resource type="Texture2D" uid="uid://dlj3g5at2v16j" path="res://assets/ui/game_won/play_again_button/play_again0000.png" id="3_jrwe2"]
 [ext_resource type="Texture2D" uid="uid://c7fdtix42sayc" path="res://assets/ui/game_won/play_again_button/play_again0001.png" id="5_d1dpr"]
-[ext_resource type="Texture2D" uid="uid://h7gfr6sy7sj6" path="res://assets/ui/game_won/exit/exit0000.png" id="6_dvxao"]
-[ext_resource type="Texture2D" uid="uid://cn81ltu66smhn" path="res://assets/ui/game_won/exit/exit0001.png" id="7_urij8"]
-[ext_resource type="Texture2D" uid="uid://blao1fhpdqj8i" path="res://assets/ui/game_won/exit/exit0002.png" id="8_p2rdg"]
+[ext_resource type="Texture2D" uid="uid://cp68vat1r6ljc" path="res://assets/ui/game_won/main_menu_button/main_menu0000.png" id="7_urij8"]
+[ext_resource type="Texture2D" uid="uid://blcgoro8dtw07" path="res://assets/ui/game_won/main_menu_button/main_menu0002.png" id="8_p2rdg"]
+[ext_resource type="Texture2D" uid="uid://1jnscm8v6qen" path="res://assets/ui/game_won/main_menu_button/main_menu0001.png" id="9_di8qt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d1dpr"]
 animations = [{
@@ -36,14 +36,25 @@ texture = ExtResource("5_d1dpr")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_di8qt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ju0ce"]
-texture = ExtResource("6_dvxao")
-region_rect = Rect2(0, 0, 400, 100)
+texture = ExtResource("7_urij8")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7g7ol"]
 texture = ExtResource("8_p2rdg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sr07p"]
-texture = ExtResource("7_urij8")
+texture = ExtResource("9_di8qt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sr07p"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rt1ue"]
 
@@ -79,16 +90,17 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_jrwe2")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dvxao")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_di8qt")
 
-[node name="ExitButton" type="Button" parent="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer"]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_ju0ce")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7g7ol")
 theme_override_styles/hover = SubResource("StyleBoxTexture_sr07p")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_sr07p")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rt1ue")
 
 [node name="Separator" type="Control" parent="MenuMarginContainer/MenuVBoxContainer"]
 layout_mode = 2
 
 [connection signal="pressed" from="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
-[connection signal="pressed" from="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer/MainMenuButton" to="." method="_on_exit_button_pressed"]

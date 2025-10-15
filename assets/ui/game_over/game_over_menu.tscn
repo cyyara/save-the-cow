@@ -1,61 +1,117 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhqdnnpmb87jh"]
+[gd_scene load_steps=21 format=3 uid="uid://bhqdnnpmb87jh"]
 
 [ext_resource type="Script" uid="uid://fcof8nuebny0" path="res://assets/ui/game_over/game_over_menu.gd" id="1_h4qs3"]
-[ext_resource type="Texture2D" uid="uid://b83y224msfwhv" path="res://assets/ui/game_over/sprites/game_over0000.png" id="2_osq5b"]
-[ext_resource type="Texture2D" uid="uid://cv0mhwrkkqc2t" path="res://assets/ui/game_over/sprites/game_over0001.png" id="3_sxsum"]
+[ext_resource type="Texture2D" uid="uid://x38hcn7ldf3n" path="res://assets/ui/game_over/sprites/background.png" id="2_vulb3"]
+[ext_resource type="Texture2D" uid="uid://ce022lidv4iqa" path="res://assets/ui/game_over/sprites/text0000.png" id="3_xe155"]
+[ext_resource type="Texture2D" uid="uid://b0hlskreuy1w2" path="res://assets/ui/game_over/sprites/text0001.png" id="4_rfdys"]
+[ext_resource type="Texture2D" uid="uid://7tq7eyy1oads" path="res://assets/ui/game_over/sprites/retry_level0000.png" id="5_1sy0s"]
+[ext_resource type="PackedScene" uid="uid://cymg51wygofex" path="res://assets/environment/eye/eye.tscn" id="5_vulb3"]
+[ext_resource type="Texture2D" uid="uid://c430yx02hfphl" path="res://assets/ui/game_over/sprites/retry_level0002.png" id="6_tg8gp"]
+[ext_resource type="Texture2D" uid="uid://ch5re277jpat0" path="res://assets/ui/game_over/sprites/retry_level0001.png" id="7_rhqmw"]
+[ext_resource type="Texture2D" uid="uid://dgy4ncr8ulvs2" path="res://assets/ui/game_over/sprites/main_menu0000.png" id="9_vulb3"]
+[ext_resource type="Texture2D" uid="uid://duu3mjstk1fph" path="res://assets/ui/game_over/sprites/main_menu0002.png" id="10_xe155"]
+[ext_resource type="Texture2D" uid="uid://bevjkqkv6rg3c" path="res://assets/ui/game_over/sprites/main_menu0001.png" id="11_rfdys"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4j5i6"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4jqh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_osq5b")
+"texture": ExtResource("3_xe155")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_sxsum")
+"texture": ExtResource("4_rfdys")
 }],
 "loop": true,
 "name": &"default",
-"speed": 3.0
+"speed": 1.0
 }]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jb6uc"]
+texture = ExtResource("5_1sy0s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifb7t"]
+texture = ExtResource("6_tg8gp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e205c"]
+texture = ExtResource("7_rhqmw")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pnujl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vulb3"]
+texture = ExtResource("9_vulb3")
+region_rect = Rect2(0, 0, 400, 100)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xe155"]
+texture = ExtResource("10_xe155")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rfdys"]
+texture = ExtResource("11_rfdys")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1sy0s"]
+
+[node name="GameOver" type="MarginContainer"]
 script = ExtResource("1_h4qs3")
 
-[node name="GameOverSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(638, 361)
-sprite_frames = SubResource("SpriteFrames_4j5i6")
-frame = 1
-frame_progress = 0.87082934
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_vulb3")
+centered = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -325.0
-offset_top = -304.0
-offset_right = 325.0
-offset_bottom = -204.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 50
+[node name="Eye" parent="Background" instance=ExtResource("5_vulb3")]
+position = Vector2(117.87207, 168.74481)
+rotation = 0.034906585
 
-[node name="retry" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(300, 100)
+[node name="Eye" parent="Background/Eye" instance=ExtResource("5_vulb3")]
+position = Vector2(922.8676, -104.896286)
+
+[node name="Eye" parent="Background/Eye/Eye" instance=ExtResource("5_vulb3")]
+position = Vector2(107.19214, 245.4079)
+
+[node name="Eye" parent="Background/Eye/Eye/Eye" instance=ExtResource("5_vulb3")]
+position = Vector2(-678.19214, -246.23071)
+
+[node name="Text" type="AnimatedSprite2D" parent="."]
+position = Vector2(616.00006, 273)
+rotation = 0.034906585
+sprite_frames = SubResource("SpriteFrames_s4jqh")
+frame_progress = 0.93370134
+
+[node name="MenuMarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "RETRY"
 
-[node name="exit" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(300, 100)
+[node name="MenuVBoxContainer" type="VBoxContainer" parent="MenuMarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
-text = "EXIT"
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+
+[node name="MenuHBoxContainer" type="HBoxContainer" parent="MenuMarginContainer/MenuVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="RetryLevelButton" type="Button" parent="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_jb6uc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ifb7t")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e205c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pnujl")
+
+[node name="MainMenuButton" type="Button" parent="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_vulb3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xe155")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rfdys")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1sy0s")
+
+[node name="Separator" type="Control" parent="MenuMarginContainer/MenuVBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer/RetryLevelButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer/RetryLevelButton" to="." method="_on_retry_level_button_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer/MainMenuButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
