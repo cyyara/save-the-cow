@@ -1,0 +1,94 @@
+[gd_scene load_steps=19 format=3 uid="uid://dwnvl8u8ub33l"]
+
+[ext_resource type="Texture2D" uid="uid://c5lha6l2k4si2" path="res://assets/ui/game_won/you_won_0.png" id="1_flkvw"]
+[ext_resource type="Script" uid="uid://t3tu465gl64q" path="res://assets/ui/game_won/winning_screen.gd" id="1_urij8"]
+[ext_resource type="Texture2D" uid="uid://dfmh0t7sl0g5v" path="res://assets/ui/game_won/you_won_1.png" id="2_x3qvs"]
+[ext_resource type="Texture2D" uid="uid://c72srsanqu7as" path="res://assets/ui/game_won/play_again_button/play_again0002.png" id="3_flkvw"]
+[ext_resource type="Texture2D" uid="uid://dlj3g5at2v16j" path="res://assets/ui/game_won/play_again_button/play_again0000.png" id="3_jrwe2"]
+[ext_resource type="Texture2D" uid="uid://c7fdtix42sayc" path="res://assets/ui/game_won/play_again_button/play_again0001.png" id="5_d1dpr"]
+[ext_resource type="Texture2D" uid="uid://h7gfr6sy7sj6" path="res://assets/ui/game_won/exit/exit0000.png" id="6_dvxao"]
+[ext_resource type="Texture2D" uid="uid://cn81ltu66smhn" path="res://assets/ui/game_won/exit/exit0001.png" id="7_urij8"]
+[ext_resource type="Texture2D" uid="uid://blao1fhpdqj8i" path="res://assets/ui/game_won/exit/exit0002.png" id="8_p2rdg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d1dpr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_flkvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x3qvs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gwemb"]
+texture = ExtResource("3_jrwe2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrwe2"]
+texture = ExtResource("3_flkvw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dvxao"]
+texture = ExtResource("5_d1dpr")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_di8qt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ju0ce"]
+texture = ExtResource("6_dvxao")
+region_rect = Rect2(0, 0, 400, 100)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7g7ol"]
+texture = ExtResource("8_p2rdg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sr07p"]
+texture = ExtResource("7_urij8")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rt1ue"]
+
+[node name="WinningScreen" type="MarginContainer"]
+script = ExtResource("1_urij8")
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d1dpr")
+centered = false
+
+[node name="MenuMarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+
+[node name="MenuVBoxContainer" type="VBoxContainer" parent="MenuMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+
+[node name="MenuHBoxContainer" type="HBoxContainer" parent="MenuMarginContainer/MenuVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_gwemb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jrwe2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dvxao")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_di8qt")
+
+[node name="ExitButton" type="Button" parent="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_ju0ce")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7g7ol")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sr07p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rt1ue")
+
+[node name="Separator" type="Control" parent="MenuMarginContainer/MenuVBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/MenuVBoxContainer/MenuHBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

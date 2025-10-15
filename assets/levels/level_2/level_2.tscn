@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://edel20bxedlo" path="res://assets/entities/cow/cow.tscn" id="4_15ckf"]
 [ext_resource type="PackedScene" uid="uid://vs4wsc5j5v3c" path="res://assets/entities/player/player.tscn" id="5_diisu"]
 [ext_resource type="PackedScene" uid="uid://dss5ktjn2000d" path="res://assets/entities/basic_enemy/basic_enemy.tscn" id="6_psbqt"]
-[ext_resource type="Script" path="res://assets/levels/level_2/elevator.gd" id="6_psjgf"]
+[ext_resource type="Script" uid="uid://eoa6dgblnp3t" path="res://assets/levels/level_2/elevator.gd" id="6_psjgf"]
 [ext_resource type="PackedScene" uid="uid://dyxuy1c2ctb4f" path="res://assets/environment/barrel/barrel.tscn" id="6_vuw0p"]
 [ext_resource type="Texture2D" uid="uid://fnb1dg7b40qb" path="res://assets/ui/pause/pause.png" id="7_vuw0p"]
 [ext_resource type="AudioStream" uid="uid://btkqmksj0fnml" path="res://assets/levels/level_2/Piano Pack - Track 10.wav" id="8_5ksxv"]
@@ -331,5 +331,6 @@ stream = ExtResource("8_5ksxv")
 volume_db = -7.0
 autoplay = true
 
+[connection signal="body_entered" from="Cow" to="Cow" method="_on_body_entered"]
 [connection signal="body_entered" from="Elevator/Area2D" to="Elevator" method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="UI/TextureButton" to="Player" method="_on_texture_button_pressed"]
